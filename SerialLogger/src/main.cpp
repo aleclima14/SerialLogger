@@ -18,7 +18,7 @@ void fnvWriteInfoInSD (String data);
 
 void setup() 
 { 
-   Serial.begin(9600); 
+   Serial.begin(115200); 
    pinMode(CHIP_SELECT_PIN, OUTPUT); 
    pinMode(CHECK_SD_PIN, INPUT_PULLUP);
 
@@ -40,7 +40,7 @@ void loop()
    checkSD = digitalRead(CHECK_SD_PIN);
    if(!checkSD)
    {
-      if((millis() - time) > 500)
+      if((millis() - time) > 100)
       {
          time = millis();
          if (flagInitSD == false) 
